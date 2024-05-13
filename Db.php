@@ -18,35 +18,21 @@ class Db{
 class InsertData extends Db
 {
     public $name;
-
-     public  $number;
-  
-    public function insert()
+    public  $number;
+     public function insert()
     {
-
-        $this->name = $_POST["name"];
+         $this->name = $_POST["name"];
         $this->number = $_POST["number"];
         $pdo=Db::connection(self::DBNAME,self::USERNAME);
-          
-       $stmt=$pdo->prepare("insert into user(name,number) values ('$this->name','$this->number')");
-
-    
+        $stmt=$pdo->prepare("insert into user(name,number) values ('$this->name','$this->number')");
         $stmt->execute();
-             
-       
-         
-         //$stmt->execute();
-       
-         // return $this;
-
-    
+    }
 }
    
-}
+
 
 class View extends Db
 {
-
          public  $data;
         final public function selctAll()
         {
@@ -60,15 +46,10 @@ class View extends Db
 
     }
 
-    
-
-
-class Delet extends Db 
+    class Delet extends Db 
 {
-    
-   public $id;
-
-public function delete()
+     public $id;
+    public function delete()
 {
     $this->id=$_GET['id'];
     $pdo=Db::connection(self::DBNAME,self::USERNAME);
@@ -78,12 +59,10 @@ public function delete()
     header("Location: View.php");
 }
 }
-
 }
 
 class Edit extends Db
 {
-
     public $data;
      public $id ;
      public $name;
@@ -92,9 +71,7 @@ public function edit()
 {
     $this->id = $_GET['id'];
     $this->name=$_POST["name"];
-     $this->number = $_POST['number'];
-    
-    //$pdo = connection();
+    $this->number = $_POST['number'];
     $pdo=Db::connection(self::DBNAME,self::USERNAME);
     $stmt = $pdo->prepare("select * from  user  where id='$this->id'");
     $stmt->execute();
@@ -119,17 +96,12 @@ public function updateMethod()
       $pdo=Db::connection(self::DBNAME,self::USERNAME);
       $stmt = $pdo->prepare("UPDATE user set name='$this->name', number='$this->number' where id ='$this->id'");
       $stmt->execute();
-     // $data = $stmt->fetch(PDO::FETCH_ASSOC);
       $this->stmt = $stmt;
-      //return $this;
-
-
-      if ($stmt) {
+    if ($stmt) {
         header("Location: View.php");
     }
-                return $this;
-
-    }
+        return $this;
+ }
 }
 
 

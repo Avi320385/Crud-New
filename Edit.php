@@ -3,9 +3,6 @@ include './Db.php';
 error_reporting(false);
 
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,24 +16,10 @@ error_reporting(false);
 <body>
 
     <form action="Update.php?id=<?php echo $obj->data->id; ?>" method="POST" >
-        name:<input type="text" name="name" value="<?php echo $obj->data->name; ?>"> 
-        <br>
-      
-        number:<input type="number" name="number" value="<?php echo $obj->data->number; ?>">
-       
-
-        <br>
-
-
-
-        <button type="submit">Submit</button>
-         
-    </form>  
-       
-   
-
-  
-</body>
-
+        name:<input type="text" name="name" value="<?php echo $obj->data->name; ?>"><br>
+        number:<input type="number" name="number" value="<?php echo $obj->data->number; ?>"><br>
+       <button type="submit">Submit</button>
+        </form>  
+       </body>
 </html>
 

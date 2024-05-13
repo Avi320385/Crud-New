@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +8,8 @@
 </head>
 <body>
     <form action=""method ="POST">
-
-    Name:<input type="text" name="name">
-    <br>
-    contact_number <input type="number" name="number">
- 
-    <br>
+    Name:<input type="text" name="name"><br>
+    contact_number <input type="number" name="number"><br>
     <button type ="submit">submit</button>
     </form>
 </body>
@@ -30,7 +23,5 @@ $obj->insert();
 if ($obj) {
     header("Location: View.php");
 }
-
-
 ?>
 
